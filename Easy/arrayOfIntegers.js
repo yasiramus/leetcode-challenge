@@ -24,3 +24,28 @@ function arrayOfIntegers(arrayOfNums, target) {
   return []
 }
 arrayOfIntegers(nums, target);
+
+
+// using the hash map approach 
+function twoSum(nums, target) {
+  const map = new Map();  // Create a hash map to store numbers and their indices
+  
+  // Loop through the array
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i];  // Calculate the required complement
+
+    // Check if the complement exists in the map
+    if (map.has(complement)) {
+      return [map.get(complement), i];  // Return indices of the two numbers
+    }
+
+    // Store the current number and its index in the map
+    map.set(nums[i], i);
+  }
+
+  return [];  // Return empty array if no solution is found
+}
+
+// Test your function
+console.log(twoSum([3, 8, 12, 4, 7], 11));  // Expected output: [0, 4]
+console.log(twoSum([2, 7, 11, 15], 9));    // Expected output: [0, 1]
