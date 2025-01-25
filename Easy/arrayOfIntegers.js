@@ -29,7 +29,8 @@ arrayOfIntegers(nums, target);
 // using the hash map approach 
 function twoSum(nums, target) {
   const map = new Map();  // Create a hash map to store numbers and their indices
-  
+  // map methon create an object instance of a key value pair 
+  // has proprities such as get, set, has, delete, forEach 
   // Loop through the array
   for (let i = 0; i < nums.length; i++) {
     let complement = target - nums[i];  // Calculate the required complement
@@ -37,9 +38,10 @@ function twoSum(nums, target) {
     // Check if the complement exists in the map
     if (map.has(complement)) {
       return [map.get(complement), i];  // Return indices of the two numbers
+      // map.get(complement) return the value of the result
     }
 
-    // Store the current number and its index in the map
+    // setting or Store the current number and its index in the map
     map.set(nums[i], i);
   }
 
