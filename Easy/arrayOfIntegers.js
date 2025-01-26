@@ -49,5 +49,5 @@ function twoSum(nums, target) {
 }
 
 // Test your function
-console.log(twoSum([3, 8, 12, 4, 7], 11)); // Expected output: [0, 4]
+console.log(twoSum([3, 8, 12, 4, 7], 11)); // Expected output: [0, 1]
 console.log(twoSum([2, 7, 11, 15], 9)); // Expected output: [0, 1]
