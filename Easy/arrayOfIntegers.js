@@ -71,3 +71,23 @@ function twoSumSorted(nums, target) {
   }
   return [];
 }
+
+
+// summary
+// 3 approaches to solving the array of interger, target and return their index numbers 
+// first approach:brute force search (bfs) approach
+// which is simple and straingth foward
+// however it has limitation
+// cant be use for lage number and it time and space complexity
+
+// 2. Optimization Using Hash Map (Efficient Lookups)
+// Optimization Idea:Instead of looping through the array twice, store each element in a hash map (object or dictionary).
+// While iterating through the array,
+//  check if the Output (target - currentNumber) exists in the hash map.
+//  Time Complexity:we traverse the array once.
+// Space Complexity: to store the elements in the hash map.
+
+// Step 3: Two-Pointer Technique (If Sorted Input Allowed)
+// Optimization Idea:
+// If the array is sorted, use two pointers (one at the start and one at the end).
+// Sum the values and adjust pointers based on the result.
