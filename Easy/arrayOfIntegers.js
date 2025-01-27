@@ -8,7 +8,7 @@ Input: (nums = [2, 7, 11, 15]), (target = 9);
 Output: [0, 1];
 
 // solution:
-// using the brute appeoach  //has limitation
+//1. using the brute appeoach  //has limitation
 function arrayOfIntegers(arrayOfNums, target) {
   const lengthOfArray = arrayOfNums.length;
 
@@ -25,7 +25,7 @@ function arrayOfIntegers(arrayOfNums, target) {
 }
 arrayOfIntegers(nums, target);
 
-// using the hash map approach
+// 2.using the hash map approach
 // works using both small and larger numbers
 function twoSum(nums, target) {
   const map = new Map(); // Create a hash map to store numbers and their indices
@@ -51,3 +51,23 @@ function twoSum(nums, target) {
 // Test your function
 console.log(twoSum([3, 8, 12, 4, 7], 11)); // Expected output: [0, 1]
 console.log(twoSum([2, 7, 11, 15], 9)); // Expected output: [0, 1]
+
+// 3. using the sorted approach 
+// this approach is used if their index numbers won't be afftected
+function twoSumSorted(nums, target) {
+  nums.sort((a, b) => a - b); // Sorting the array first
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (left < right) {
+    const sum = nums[left] + nums[right];
+    if (sum === target) {
+      return [left, right];
+    } else if (sum < target) {
+      left++;  // Move left pointer right to increase sum
+    } else {
+      right--; // Move right pointer left to decrease sum
+    }
+  }
+  return [];
+}
