@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "solving leetcode challenge to improve my ps game",
   "main": "main.js",
-  "start":"nodemon main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
   "repository": "https://github.com/yasiramus/leetcode-challenge.git",
   "author": "yasiramus <yasirayusif@gmail.com>",
   "license": "MIT"
