@@ -1,3 +1,7 @@
+// question 
+// Check if One String Swap Can Make Strings Equal
+
+
 function areAlmostEqual(firstString, secondString) {
   if (firstString === secondString) return true;
 
