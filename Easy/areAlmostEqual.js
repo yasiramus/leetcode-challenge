@@ -27,6 +27,7 @@
 // s1.length == s2.length
 // s1 and s2 consist of only lowercase English letters.
 
+// nb:expected result :return a boolean value
 function areAlmostEqual(firstString, secondString) {
   let firstStringToLowerCase = firstString.toLowerCase();
   let secondStringToLowerCase = secondString.toLowerCase();
