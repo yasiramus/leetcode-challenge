@@ -23,4 +23,4 @@ const testCase2 = [
 
 // console.log("Fish max: ", findFishMax1);
 
-console.log("areAlmostEqual: ", areAlmostEqual("abcd", "dcba"));
+console.log("areAlmostEqual: ", areAlmostEqual("YSIA", "isya"));
