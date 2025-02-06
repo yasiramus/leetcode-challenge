@@ -1,4 +1,4 @@
-// question
+// question 
 // Check if One String Swap Can Make Strings Equal
 
 // You are given two strings s1 and s2 of equal length. A string swap is an operation where you choose two indices in a string (not necessarily different) and swap the characters at these indices.
@@ -31,8 +31,9 @@
 function areAlmostEqual(firstString, secondString) {
   let firstStringToLowerCase = firstString.toLowerCase();
   let secondStringToLowerCase = secondString.toLowerCase();
+
   if (firstStringToLowerCase === secondStringToLowerCase) return true;
-  let stringFrequencyMap1 = new Array(26).fill(0);
+  let stringFrequencyMap1 = new Array(26).fill(0); //a has 26 characters
   let stringFrequencyMap2 = new Array(26).fill(0);
 
   let numDiffs = 0;
