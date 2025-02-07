@@ -9,8 +9,6 @@
 
 // Note that when answering a query, lack of a color will not be considered as a color.
 
- 
-
 // Example 1:
 
 // Input: limit = 4, queries = [[1,4],[2,5],[1,3],[3,4]]
@@ -18,8 +16,6 @@
 // Output: [1,2,2,3]
 
 // Explanation:
-
-
 
 // After query 0, ball 1 has color 4.
 // After query 1, ball 1 has color 4, and ball 2 has color 5.
@@ -33,14 +29,11 @@
 
 // Explanation:
 
-
-
 // After query 0, ball 0 has color 1.
 // After query 1, ball 0 has color 1, and ball 1 has color 2.
 // After query 2, ball 0 has color 1, and balls 1 and 2 have color 2.
 // After query 3, ball 0 has color 1, balls 1 and 2 have color 2, and ball 3 has color 4.
 // After query 4, ball 0 has color 1, balls 1 and 2 have color 2, ball 3 has color 4, and ball 4 has color 5.
- 
 
 // Constraints:
 // 1 <= limit <= 109
@@ -100,3 +93,34 @@
 // In the worst case, ballMap can store up to n distinct colors (if all queries introduce a new ball label), and the colorMap can store up to n distinct colors (if all queries introduce a new color). Therefore, the space complexity is O(2n), which simplifies to O(n).
 
 // Note: The result array also contributes O(n) space, but since it is part of the output, it is typically not counted in the auxiliary space complexity. However, if we include it, the space complexity remains O(n).
+
+// nb:limit isnt in use 
+var queryResults = function (limit, queries) {
+  const lengthOfQueries = queries.length;
+  let result = new Array(lengthOfQueries).fill(0);
+  let colorMap = new Map();
+  let ballMap = new Map();
+
+  for (let index = 0; index < lengthOfQueries; index++) {
+    let [ball, color] = queries[index];
+
+    if (ballMap.has(ball)) {
+      let prevColor = ballMap.get(ball);
+
+      colorMap.set(prevColor, colorMap.get(prevColor) - 1);
+
+      if (colorMap.get(prevColor) === 0) {
+        colorMap.delete(prevColor);
+      }
+    }
+
+    ballMap.set(ball, color);
+    colorMap.set(color, (colorMap.get(color) || 0) + 1);
+
+    result[index] = colorMap.size;
+  }
+
+  return result;
+};
+
+module.exports = queryResults;
