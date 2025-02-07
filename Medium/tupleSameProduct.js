@@ -85,28 +85,25 @@
  */
 
 var tupleSameProduct = function (nums) {
-  nums.sort((a, b) => a - b);//not neccessary
+  nums.sort((a, b) => a - b); //not neccessary
 
   let numsLength = nums.length;
   let totalNumberOfTuples = 0;
 
   // Iterate over all possible values for 'a'
   for (let indexOfA = 0; indexOfA < numsLength; indexOfA++) {
-
     // Break early if there aren't enough elements left to form a valid tuple
-    if (numsLength - aIndex < 4) break;
+    // if (numsLength - indexOfA < 4) break;
 
     // Iterate over all possible values for 'b', starting from the end
     for (let indexOfB = numsLength - 1; indexOfB >= indexOfA + 1; indexOfB--) {
-
       let resultOfAB = nums[indexOfA] * nums[indexOfB];
-
+      // console.log( nums[indexOfA],  nums[indexOfB])
+      // console.log(resultOfAB,'[2,3,4,6]')
       // Use a map to store possible values of 'd' for better tracking
       let possibleDValues = new Map();
-
       // Iterate over all possible values for 'c' between 'a' and 'b'
       for (let indexOfC = indexOfA + 1; indexOfC < indexOfB; indexOfC++) {
-
         // Check if the product is divisible by nums[cIndex]
         if (resultOfAB % nums[indexOfC] === 0) {
           let valueOfD = resultOfAB / nums[indexOfC];
@@ -115,11 +112,12 @@ var tupleSameProduct = function (nums) {
           // Each valid tuple can be arranged in 8 different ways:
           // (a, b, c, d), (a, b, d, c), (b, a, c, d), (b, a, d, c),
           // (c, d, a, b), (c, d, b, a), (d, c, a, b), (d, c, b, a)
+
           if (possibleDValues.has(valueOfD)) {
             totalNumberOfTuples += 8;
           }
           // Add nums[indexOfC] to the map for future checks
-          possibleDValues.add(nums[indexOfC]);
+          possibleDValues.set(nums[indexOfC]);
         }
       }
     }
@@ -127,3 +125,5 @@ var tupleSameProduct = function (nums) {
 
   return totalNumberOfTuples;
 };
+
+module.exports = tupleSameProduct;

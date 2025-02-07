@@ -3,7 +3,7 @@
 const getMaxFishCount = require("./Medium/getMaxFishCount");
 
 const areAlmostEqual = require("./Easy/areAlmostEqual");
-
+const tupleSameProduct = require('./Medium/tupleSameProduct')
 const testCase1 = [
   [1, 0, 0, 0],
   [0, 0, 0, 0],
@@ -23,4 +23,5 @@ const testCase2 = [
 
 // console.log("Fish max: ", findFishMax1);
 
-console.log("areAlmostEqual: ", areAlmostEqual("YSIA", "isya"));
+// console.log("areAlmostEqual: ", areAlmostEqual("YSIA", "isya"));
+console.log(tupleSameProduct([2,3,4,6,8]))
