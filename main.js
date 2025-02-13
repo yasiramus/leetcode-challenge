@@ -4,7 +4,7 @@ const getMaxFishCount = require("./Medium/getMaxFishCount");
 
 const areAlmostEqual = require("./Easy/areAlmostEqual");
 const tupleSameProduct = require('./Medium/tupleSameProduct');
-const calcualateDigitSum = require("./Medium/maximumSum");
+const maximumSum = require("./Medium/maximumSum");
 const testCase1 = [
   [1, 0, 0, 0],
   [0, 0, 0, 0],
@@ -26,5 +26,6 @@ const testCase2 = [
 
 // console.log("areAlmostEqual: ", areAlmostEqual("YSIA", "isya"));
 // console.log(tupleSameProduct([2,3,4,6,8]))
-
-console.log('cc',calcualateDigitSum(13))
+nums = [18,43,36,13,7]
+nums2 = [10,12,19,14]
+console.log('cc',maximumSum(nums2))

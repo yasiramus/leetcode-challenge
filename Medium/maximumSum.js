@@ -69,4 +69,25 @@ function calcualateDigitSum(number) {
   return sumOfNumbers;
 }
 
-module.exports = calcualateDigitSum;
+function maximumSum(nums) {
+  let maxPairSum = -1;
+  let digitSumPairs = nums
+    .map((num) => ({
+      key: calcualateDigitSum(num),
+      value: num,
+    }))
+    .sort((a, b) => a.key - b.key || a.value - b.value);
+
+  for (let index = 1; index < digitSumPairs.length; index++) {
+    // comparing current key with previous key
+    if (digitSumPairs[index].key === digitSumPairs[index - 1].key) {
+      let currentValue =
+        digitSumPairs[index].value + digitSumPairs[index - 1].value; // add their values
+
+      maxPairSum = Math.max(maxPairSum, currentValue);
+    }
+  }
+
+  return maxPairSum;
+}
+module.exports = maximumSum;
