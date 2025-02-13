@@ -4,8 +4,6 @@
 
 // Return the maximum value of nums[i] + nums[j] that you can obtain over all possible indices i and j that satisfy the conditions.
 
- 
-
 // Example 1:
 
 // Input: nums = [18,43,36,13,7]
@@ -19,7 +17,6 @@
 // Input: nums = [10,12,19,14]
 // Output: -1
 // Explanation: There are no two numbers that satisfy the conditions, so we return -1.
- 
 
 // Constraints:
 
@@ -61,3 +58,15 @@
 // If they are the same, calculate the sum of their values.
 // Update maxPairSum with the larger value between maxPairSum and the calculated sum.
 // Return maxPairSum.
+
+// helper function to return the sum of the numbers
+function calcualateDigitSum(number) {
+  let sumOfNumbers = 0;
+  while (number > 0) {
+    sumOfNumbers += number % 10; //return the last digit and add it to sumOfNumbers
+    number = Math.floor(number / 10);
+  }
+  return sumOfNumbers;
+}
+
+module.exports = calcualateDigitSum;
