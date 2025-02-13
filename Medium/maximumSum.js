@@ -25,3 +25,39 @@
 
 // 1 <= nums.length <= 105
 // 1 <= nums[i] <= 109
+
+// Solutions:
+// Approach 1: Sorting
+// Intuition
+// We are given an array nums of positive integers. Our goal is to find the largest possible sum of two distinct elements, nums[i] and nums[j], where both numbers have the same digit sum. If no such pair exists, we return -1.
+
+// Observe that we can divide the numbers into groups, where all numbers with the same digit sum belong to the same group. The two largest numbers in each group will always form the pair with the greatest sum for that group.
+
+// So, what is the first technique that comes to mind when we need to select the largest values from a set? Most likely, it's sorting the values and picking the largest ones. However, in this case, we can't directly sort the elements. Instead, we need to map each number to its digit sum and then sort the numbers within each group that shares the same digit sum.
+
+// For example, given the array nums = [36, 60, 45, 18, 33, 24], the digit sums of the elements are: [9, 6, 9, 9, 6, 6].
+
+// Now, the elements with digit sum of 9 are [36, 45, 18] and those with digit sum of 6 are [24, 33, 60]. When we sort the elements in these groups, we get [18, 36, 45] and [24, 33, 60]. The two largest values in each group would create the largest sum for that digit sum. Therefore, for digit sum 9, the largest sum is 45 + 36 = 81, and for digit sum 6, it is 33 + 60 = 93.
+
+// We can implement this using an array of pairs where each element is of the form {digitSum, value}. Then, we sort the array based on the digitSum values. If two elements have the same digit sum, we sort them based on their values. This way, all elements with the same digit sum will be grouped together in non-decreasing order. Finally, we'll update our result with the largest sum of two consecutive elements within each group, which is the sum of the two last elements of the group.
+
+// Algorithm
+// Helper Function - calculateDigitSum(int num):
+
+// Initialize digitSum to 0.
+// While num is greater than 0:
+// Add num % 10 to digitSum.
+// Divide num by 10.
+// Return digitSum.
+
+// Main Function:
+// Iterate through the elements of nums:
+// Compute the digit sum for each element using calculateDigitSum(number).
+// Store each number and its digit sum as a pair in the array digitSumPairs.
+// Sort the vector digitSumPairs based on digit sums. If two elements have the same digit sum, sort by their values.
+// Initialize maxPairSum as -1.
+// Iterate through the sorted array starting from index 1:
+// Compare the current element's digit sum with the previous element's digit sum.
+// If they are the same, calculate the sum of their values.
+// Update maxPairSum with the larger value between maxPairSum and the calculated sum.
+// Return maxPairSum.
