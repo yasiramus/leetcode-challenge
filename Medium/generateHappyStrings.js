@@ -49,11 +49,11 @@
  * @return {string}
  */
 var getHappyString = function (n, k) {
-  const happyStrings = generateHappyStrings(n, "");
+  const happyStrings = generateHappyStrings(n);
   return happyStrings.length < k ? "" : happyStrings.sort()[k - 1];
 };
 
-const generateHappyStrings = (n, currentString) => {
+const generateHappyStrings = (n, currentString="") => {
   if (currentString.length === n) return [currentString];
   const givenCharacters = ["a", "b", "c"];
   return givenCharacters
