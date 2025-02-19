@@ -36,3 +36,12 @@
 // 1 <= k <= 100
 
 // Approach one; using the backtracking approach 
+
+// Intuition
+// In this approach, I use backtracking to simulate the described process and generate all happy strings of n size. To do this, we I build the strings step by step while ensuring they follow the "happy" property.
+
+// We start with an empty string and recursively extend it by adding characters'a','b', or'c', making sure that no two consecutive characters are the same. This means that at each step, I choose a character that is different from the last one in the string. To implement this, I filter over the characters'a','b'and'c'and for each of them we check whether it matches the last character of the string we have constructed so far If so, we skip this character. Otherwise, we add it to the end of the currentString and continue the backtracking by calling generateHappyString(n, "").
+
+// After generating all happy strings of size n, we check if there are at least k of them. If there are, we sort these strings in lexicographical order and return the k 
+// th
+//  one. Otherwise, we return an empty string to indicate that there are not enough happy strings.
