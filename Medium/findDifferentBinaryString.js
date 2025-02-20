@@ -51,24 +51,27 @@
 
 // Algorithm
 
-// Initialize the result. 
-// Iterate i over the indices of nums:
+// Initialize the result to empty string. 
+// Iterate over the indices of nums starting from zeo
 // Set result += nums[i][i].
 // If nums[i][i] = "0", add "1"to result. Otherwise, add"0"to result.
 // Return result.
 
 // Implementation
+var findDifferentBinaryString = function(nums) {
+    let result = "";
+    for(let index = 0; index < nums.length; index++){
+        result += nums[index][index] === "0"? "1":"0"
+    }
+    return result
+};
 
-
-// Complexity Analysis
-
-// Givennas the length ofnums(and the length of each binary string),
 
 // Time complexity:O(n)
 
-// We iterate over each string innums. Assuming the string building is efficient, each iteration costsO(1), and joining the answer string at the end costsO(n).
+// We iterate over each string in nums. Assuming the string building is efficient, each iteration costsO(1), and joining the result string at the end costsO(n).
 
 // Space complexity:O(1)
 
-// We don't count the result as part of the space complexity.
+//result isn't counted as part of the space complexity.
 
