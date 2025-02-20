@@ -49,11 +49,11 @@
  * @return {string}
  */
 var getHappyString = function (n, k) {
-  const happyStrings = generateHappyStrings(n);
-  return happyStrings.length < k ? "" : happyStrings.sort()[k - 1];
+  const happyStrings = generateHappyStrings(n); //return an array of strings with the expectecd characters
+  return happyStrings.length < k ? "" : happyStrings.sort()[k - 1]; //length is less than k it returns an empty string otherwise it return the value 
 };
 
-const generateHappyStrings = (n, currentString="") => {
+function generateHappyStrings (n, currentString="") {
   if (currentString.length === n) return [currentString];
   const givenCharacters = ["a", "b", "c"];
   return givenCharacters
