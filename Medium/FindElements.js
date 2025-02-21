@@ -12,7 +12,7 @@
 
 // // FindElements(TreeNode* root) Initializes the object with a contaminated binary tree and recovers it.
 // // bool find(int target) Returns true if the target value exists in the recovered binary tree.
- 
+
 // // Example 1:
 // // Input
 // // ["FindElements","find","find"]
@@ -20,11 +20,10 @@
 // // Output
 // // [null,false,true]
 // // Explanation
-// // FindElements findElements = new FindElements([-1,null,-1]); 
-// // findElements.find(1); // return False 
-// // findElements.find(2); // return True 
+// // FindElements findElements = new FindElements([-1,null,-1]);
+// // findElements.find(1); // return False
+// // findElements.find(2); // return True
 // // Example 2:
-
 
 // // Input
 // // ["FindElements","find","find","find"]
@@ -38,7 +37,6 @@
 // // findElements.find(5); // return False
 // // Example 3:
 
-
 // // Input
 // // ["FindElements","find","find","find","find"]
 // // [[[-1,null,-1,-1,null,-1]],[2],[3],[4],[5]]
@@ -50,7 +48,6 @@
 // // findElements.find(3); // return False
 // // findElements.find(4); // return False
 // // findElements.find(5); // return True
- 
 
 // // Constraints:
 // // TreeNode.val == -1
@@ -89,6 +86,44 @@
 // Forfind(target)function:
 // We return whether or notseencontainstarget: returnseen.contains(target).
 // Implementation
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ */
+var FindElements = function (root) {
+  this.seen = new Set();
+
+  const dfs = (node, value) => {
+    if (!node) return;
+    this.seen.add(value);
+    node.val = value;
+    dfs(node.left, 2 * value + 1);
+    dfs(node.right, 2 * value + 2);
+  };
+
+  if (root) return dfs(root, 0);
+};
+
+/**
+ * @param {number} target
+ * @return {boolean}
+ */
+FindElements.prototype.find = function (target) {
+  return this.seen.has(target);
+};
+
+/**
+ * Your FindElements object will be instantiated and called as such:
+ * var obj = new FindElements(root)
+ * var param_1 = obj.find(target)
+ */
 
 // Complexity Analysis
 // LetNbe the number of nodes inroot.
@@ -100,4 +135,3 @@
 // Space Complexity:O(N)
 
 // After theFindElementsconstructor is called, our set contains the values of all the nodes ofroot, which takesO(N)space.
-
